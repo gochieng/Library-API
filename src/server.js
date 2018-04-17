@@ -1,9 +1,15 @@
 import express from 'express';
-import config from './src/config/express';
+
+import dbConfig from './config/db';
+import expressConfig from './config/express';
+
+import dotenv from 'dotenv';
 
 const app = express();
+dotenv.config();
 
-config(app);
+dbConfig();
+expressConfig(app);
 
 app.get('/', (req, res) => {
     res.status(200);
