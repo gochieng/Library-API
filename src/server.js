@@ -1,26 +1,25 @@
-import express from 'express';
+// import dependencies
 import dotenv from 'dotenv';
+import express from 'express';
 
+// import configs
 import dbConfig from './config/db';
 import expressConfig from './config/express';
 
-const app = express();
+// import our routes
+import index from './routes';
+import books from './routes/books';
+
+// initialize DotEnv as early as possible
 dotenv.config();
 
+const app = express();
+
+// configure our app
 dbConfig();
 expressConfig(app);
 
-app.get('/', (req, res) => {
-  res.status(200);
-  res.send('Hello there!');
-});
-
-app.post('/', (req, res) => {
-  const message = `Hello ${req.body.to}`;
-  res.status(200).json({
-    status: 'ok',
-    message,
-  });
-});
+app.use('/', index);
+app.use('/books', books);
 
 export default app;
