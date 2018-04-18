@@ -5,8 +5,11 @@
         "node": true
     },
     "extends": [
-        "eslint: recommended",
-        "airbnb"
+        "eslint:recommended",
+        "airbnb-base"
     ],
-    "rules": {}
+    "rules": {
+        "no-console": 0,
+        "no-param-reassign": 0
+    }
 }

@@ -38,7 +38,7 @@ const getBook = (req, res) => {
 
 // find a single book given the id
 export const findBook = (req, res) => {
-  getBook(req, res).then(book => res.status(200).json(book))
+  getBook(req, res).then(book => res.status(200).json(book));
 };
 
 // add a book into the library
